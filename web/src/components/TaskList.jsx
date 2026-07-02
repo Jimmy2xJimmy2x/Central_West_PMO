@@ -1,6 +1,6 @@
 import TaskCard from './TaskCard';
 
-export default function TaskList({ tasks, onUpdate }) {
+export default function TaskList({ tasks, onUpdate, onEdit }) {
   // Group by priority
   const byPriority = {
     high: tasks.filter(t => t.priority === 'high'),
@@ -18,7 +18,7 @@ export default function TaskList({ tasks, onUpdate }) {
       <div className="task-list">
         {['high', 'medium', 'low'].map(priority =>
           byPriority[priority].map(task => (
-            <TaskCard key={task.id} task={task} onUpdate={onUpdate} />
+            <TaskCard key={task.id} task={task} onUpdate={onUpdate} onEdit={onEdit} />
           ))
         )}
       </div>
