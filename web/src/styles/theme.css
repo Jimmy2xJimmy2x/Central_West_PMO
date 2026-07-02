@@ -1,0 +1,44 @@
+:root {
+    /* Base colors */
+    --color-bg:            #ffffff;
+    --color-bg-secondary:  #f8f9fa;
+    --color-text:          #1a1a2e;
+    --color-text-muted:    #6c757d;
+    --color-border:        #dee2e6;
+    --color-accent:        #4a90d9;
+    --color-accent-hover:  #357abd;
+
+    /* Priority colors */
+    --color-priority-high:   #dc3545;
+    --color-priority-medium: #fd7e14;
+    --color-priority-low:    #28a745;
+
+    /* Status colors */
+    --color-status-done:     #28a745;
+    --color-status-pending:  #6c757d;
+    --color-status-active:   #4a90d9;
+
+    /* Layout */
+    --sidebar-width:       240px;
+    --header-height:       56px;
+    --border-radius:       6px;
+    --spacing-unit:        8px;
+
+    /* Typography */
+    --font-family:         -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-sm:        0.875rem;
+    --font-size-base:      1rem;
+    --font-size-lg:        1.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg:            #1a1a2e;
+        --color-bg-secondary:  #16213e;
+        --color-text:          #e0e0e0;
+        --color-text-muted:    #9e9e9e;
+        --color-border:        #2d2d44;
+        --color-accent:        #5dade2;
+        --color-accent-hover:  #3498db;
+    }
+}

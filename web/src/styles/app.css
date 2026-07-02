@@ -1,0 +1,130 @@
+@import './theme.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: var(--header-height);
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 calc(var(--spacing-unit) * 3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main {
+  flex: 1;
+  padding: calc(var(--spacing-unit) * 3);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.task-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.task-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-card.done {
+  opacity: 0.6;
+}
+
+.task-card .task-title {
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.task-card.done .task-title {
+  text-decoration: line-through;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-badge.high {
+  background: var(--color-priority-high);
+  color: white;
+}
+
+.priority-badge.medium {
+  background: var(--color-priority-medium);
+  color: white;
+}
+
+.priority-badge.low {
+  background: var(--color-priority-low);
+  color: white;
+}
+
+.day-selector {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 2);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.day-selector button {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+.day-selector button:hover {
+  background: var(--color-accent-hover);
+}
+
+.day-selector h2 {
+  font-size: var(--font-size-lg);
+}
+
+input, textarea, select, button {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+}
+
+button {
+  cursor: pointer;
+}
