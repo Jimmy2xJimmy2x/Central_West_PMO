@@ -22,7 +22,8 @@ def create_timeblock(
     start_time: str,
     end_time: str,
     task_id: Optional[int] = None,
-    label: str = ""
+    label: str = "",
+    meeting_link: str = ""
 ) -> dict:
     """Create a new time block"""
     conn = get_connection()
@@ -30,10 +31,10 @@ def create_timeblock(
 
     cursor.execute(
         """
-        INSERT INTO time_blocks (date, start_time, end_time, task_id, label)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO time_blocks (date, start_time, end_time, task_id, label, meeting_link)
+        VALUES (?, ?, ?, ?, ?, ?)
         """,
-        (date, start_time, end_time, task_id, label)
+        (date, start_time, end_time, task_id, label, meeting_link)
     )
 
     block_id = cursor.lastrowid
@@ -55,7 +56,7 @@ def update_timeblock(block_id: int, **fields) -> Optional[dict]:
         conn.close()
         return row_to_dict(row)
 
-    allowed_fields = {'start_time', 'end_time', 'task_id', 'label'}
+    allowed_fields = {'start_time', 'end_time', 'task_id', 'label', 'meeting_link'}
     updates = {k: v for k, v in fields.items() if k in allowed_fields}
 
     if not updates:

@@ -34,7 +34,8 @@ def create_timeblock():
         start_time=data['start_time'],
         end_time=data['end_time'],
         task_id=data.get('task_id'),
-        label=data.get('label', '')
+        label=data.get('label', ''),
+        meeting_link=data.get('meeting_link', '')
     )
     return jsonify(block), 201
 

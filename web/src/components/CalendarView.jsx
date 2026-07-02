@@ -33,6 +33,24 @@ export default function CalendarView({ date, tasks }) {
     return `${hour12}:${minutes} ${ampm}`;
   };
 
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+
+  const getMeetingPlatform = (url) => {
+    if (!url) return null;
+    if (url.includes('meet.google.com')) return 'Google Meet';
+    if (url.includes('zoom.us')) return 'Zoom';
+    if (url.includes('teams.microsoft.com')) return 'Microsoft Teams';
+    if (url.includes('webex.com')) return 'Webex';
+    return 'Meeting Link';
+  };
+
   if (loading) {
     return (
       <div className="calendar-view">
@@ -55,26 +73,42 @@ export default function CalendarView({ date, tasks }) {
         <div className="time-blocks">
           {timeBlocks.map(block => {
             const task = block.task_id ? getTaskById(block.task_id) : null;
+            const title = task ? task.title : block.label;
+            const meetingPlatform = getMeetingPlatform(block.meeting_link);
+
             return (
-              <div key={block.id} className="time-block-card">
-                <div className="time-block-time">
-                  {formatTime(block.start_time)} - {formatTime(block.end_time)}
-                </div>
-                <div className="time-block-content">
-                  {task ? (
-                    <>
-                      <div className="time-block-title">{task.title}</div>
-                      {task.description && (
-                        <div className="time-block-desc">{task.description}</div>
-                      )}
-                      <span className={`time-block-priority ${task.priority}`}>
-                        {task.priority}
-                      </span>
-                    </>
-                  ) : (
-                    <div className="time-block-title">{block.label}</div>
+              <div key={block.id} className="appointment-card">
+                <div className="appointment-header">
+                  <div className="appointment-title">{title}</div>
+                  {task && (
+                    <span className={`appointment-priority ${task.priority}`}>
+                      {task.priority}
+                    </span>
                   )}
                 </div>
+
+                <div className="appointment-time">
+                  🕐 {formatTime(block.start_time)} - {formatTime(block.end_time)}
+                </div>
+
+                <div className="appointment-date">
+                  📅 {formatDate(block.date)}
+                </div>
+
+                {task?.description && (
+                  <div className="appointment-desc">{task.description}</div>
+                )}
+
+                {block.meeting_link && (
+                  <a
+                    href={block.meeting_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="meeting-link"
+                  >
+                    🔗 {meetingPlatform}
+                  </a>
+                )}
               </div>
             );
           })}
