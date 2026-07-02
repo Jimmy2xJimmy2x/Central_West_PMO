@@ -31,7 +31,10 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Central West PMO</h1>
+        <div className="header-left">
+          <img src="/redhat-logo.svg" alt="Red Hat" className="redhat-logo" />
+          <h1>Central West PMO</h1>
+        </div>
         <button onClick={handleNewTask} className="btn-primary">
           + New Task
         </button>

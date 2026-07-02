@@ -1,44 +1,42 @@
+/* Red Hat Support Portal Color Scheme */
 :root {
-    /* Base colors */
-    --color-bg:            #ffffff;
-    --color-bg-secondary:  #f8f9fa;
-    --color-text:          #1a1a2e;
-    --color-text-muted:    #6c757d;
-    --color-border:        #dee2e6;
-    --color-accent:        #4a90d9;
-    --color-accent-hover:  #357abd;
+    /* Base colors - Black background with Red Hat accents */
+    --color-bg:            #000000;
+    --color-bg-secondary:  #151515;
+    --color-bg-tertiary:   #1f1f1f;
+    --color-text:          #ffffff;
+    --color-text-muted:    #a3a3a3;
+    --color-border:        #3a3a3a;
 
-    /* Priority colors */
-    --color-priority-high:   #dc3545;
-    --color-priority-medium: #fd7e14;
-    --color-priority-low:    #28a745;
+    /* Red Hat brand colors */
+    --color-redhat-red:    #ee0000;
+    --color-redhat-red-hover: #cc0000;
+    --color-accent:        #ee0000;
+    --color-accent-hover:  #cc0000;
+
+    /* Priority colors - Red Hat palette */
+    --color-priority-high:   #ee0000;
+    --color-priority-medium: #ec7a08;
+    --color-priority-low:    #92d400;
 
     /* Status colors */
-    --color-status-done:     #28a745;
-    --color-status-pending:  #6c757d;
-    --color-status-active:   #4a90d9;
+    --color-status-done:     #92d400;
+    --color-status-pending:  #a3a3a3;
+    --color-status-active:   #ee0000;
+
+    /* Links and interactive elements */
+    --color-link:          #73bcf7;
+    --color-link-hover:    #2b9af3;
 
     /* Layout */
     --sidebar-width:       240px;
-    --header-height:       56px;
-    --border-radius:       6px;
+    --header-height:       60px;
+    --border-radius:       3px;
     --spacing-unit:        8px;
 
-    /* Typography */
-    --font-family:         -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Typography - Red Hat uses Red Hat Display/Text fonts */
+    --font-family:         'Red Hat Display', 'Overpass', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-sm:        0.875rem;
     --font-size-base:      1rem;
     --font-size-lg:        1.25rem;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg:            #1a1a2e;
-        --color-bg-secondary:  #16213e;
-        --color-text:          #e0e0e0;
-        --color-text-muted:    #9e9e9e;
-        --color-border:        #2d2d44;
-        --color-accent:        #5dade2;
-        --color-accent-hover:  #3498db;
-    }
 }
