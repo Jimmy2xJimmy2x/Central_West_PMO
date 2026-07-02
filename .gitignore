@@ -8,3 +8,11 @@ node_modules/
 dist/
 .vite/
 .env
+
+# Google Calendar OAuth
+credentials.json
+token.json
+config.json
+
+# Logs
+logs/

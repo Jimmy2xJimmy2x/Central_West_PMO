@@ -1,0 +1,18 @@
+{
+  "google_calendar": {
+    "enabled": true,
+    "auto_sync_time": "07:00",
+    "calendars": [
+      {
+        "id": "primary",
+        "name": "Personal Calendar",
+        "read_only": false
+      },
+      {
+        "id": "group-calendar@example.com",
+        "name": "Team Calendar",
+        "read_only": true
+      }
+    ]
+  }
+}
