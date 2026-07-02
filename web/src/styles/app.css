@@ -44,9 +44,30 @@ body {
 .main {
   flex: 1;
   padding: calc(var(--spacing-unit) * 3);
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+}
+
+/* Two-column layout */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--spacing-unit) * 3);
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.tasks-column h3,
+.calendar-view h3 {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+}
+
+@media (max-width: 968px) {
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .task-list {
@@ -248,4 +269,90 @@ button {
 
 .form-actions button {
   flex: 1;
+}
+
+/* Calendar View */
+.calendar-view {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 4);
+  color: var(--color-text-muted);
+}
+
+.empty-state .hint {
+  font-size: var(--font-size-sm);
+  margin-top: calc(var(--spacing-unit) * 1);
+}
+
+.time-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+}
+
+.time-block-card {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-redhat-red);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  transition: all 0.2s;
+}
+
+.time-block-card:hover {
+  border-left-color: var(--color-redhat-red-hover);
+  box-shadow: 0 0 0 1px var(--color-border);
+}
+
+.time-block-time {
+  font-size: var(--font-size-sm);
+  color: var(--color-redhat-red);
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.time-block-content {
+  margin-left: calc(var(--spacing-unit) * 1);
+}
+
+.time-block-title {
+  font-weight: 600;
+  margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.time-block-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+.time-block-priority {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.time-block-priority.high {
+  background: var(--color-priority-high);
+  color: white;
+}
+
+.time-block-priority.medium {
+  background: var(--color-priority-medium);
+  color: white;
+}
+
+.time-block-priority.low {
+  background: var(--color-priority-low);
+  color: white;
 }

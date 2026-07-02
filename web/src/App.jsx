@@ -3,6 +3,7 @@ import './styles/app.css';
 import DaySelector from './components/DaySelector';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
+import CalendarView from './components/CalendarView';
 import { useTasks } from './hooks/useTasks';
 import { getTodayISO } from './utils/dates';
 
@@ -44,7 +45,17 @@ function App() {
 
         {loading && <p>Loading tasks...</p>}
         {error && <p style={{ color: 'var(--color-priority-high)' }}>Error: {error}</p>}
-        {!loading && !error && <TaskList tasks={tasks} onUpdate={refetch} onEdit={handleEditTask} />}
+        {!loading && !error && (
+          <div className="two-column-layout">
+            <div className="tasks-column">
+              <h3>Tasks</h3>
+              <TaskList tasks={tasks} onUpdate={refetch} onEdit={handleEditTask} />
+            </div>
+            <div className="calendar-column">
+              <CalendarView date={selectedDate} tasks={tasks} />
+            </div>
+          </div>
+        )}
       </main>
 
       {showForm && (
